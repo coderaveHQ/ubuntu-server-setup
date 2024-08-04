@@ -1,30 +1,14 @@
 #!/bin/bash
 
-# Check if script is run with root permissions
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run with sudo or as root"
-    exit
-fi
-
-# Check if the config.sh file exists
-if [ ! -f config.sh ]; then
-    echo "Please create a config.sh file"
-    exit
-fi
-
-# Load the configuration
-source config.sh
-
-# Check if the user has set the configuration
-if [ -z "$USERS" || -z "$GROUPNAME"]; then
-    echo "Please set the USERS array and GROUPNAME in the config.sh file"
-    exit
-fi
+# Check if the script is run with root permissions
+source "$(dirname "$0")/scripts/common/check_root.sh"
 
 # Execute all scripts in the scripts directory
 for script in ./scripts/*.sh; do
-    echo "Running $script"
-    bash $script
+  if [[ $script != "./scripts/common/check_root.sh" && $script != "./scripts/common/load_config.sh" ]]; then
+    echo "Running $script..."
+    bash "$script"
+  fi
 done
 
 # Restart the ubuntu server

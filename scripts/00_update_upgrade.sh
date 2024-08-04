@@ -1,10 +1,7 @@
 #!/bin/bash
 
 # Check if script is run with root permissions
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run with sudo or as root"
-    exit
-fi
+source "$(dirname "$0")/common/check_root.sh"
 
 # Update and Upgrade the system
 echo "Updating and Upgrading the system..."
