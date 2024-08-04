@@ -6,5 +6,27 @@ if [ "$EUID" -ne 0 ]; then
     exit
 fi
 
-# Update and Upgrade the system
-./scripts/00_update_upgrade.sh
+# Check if the config.sh file exists
+if [ ! -f config.sh ]; then
+    echo "Please create a config.sh file"
+    exit
+fi
+
+# Load the configuration
+source config.sh
+
+# Check if the user has set the configuration
+if [ -z "$USERS" || -z "$GROUPNAME"]; then
+    echo "Please set the USERS array and GROUPNAME in the config.sh file"
+    exit
+fi
+
+# Execute all scripts in the scripts directory
+for script in ./scripts/*.sh; do
+    echo "Running $script"
+    bash $script
+done
+
+# Restart the ubuntu server
+echo "Restarting the server"
+reboot
