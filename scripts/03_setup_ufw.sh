@@ -12,7 +12,7 @@ if ! command -v ufw >/dev/null 2>&1; then
 fi
 
 # Reset UFW to default settings
-ufw reset
+ufw reset -y
 
 # Set default policies
 ufw default deny incoming
@@ -25,7 +25,7 @@ for port in "${UFW_PORTS[@]}"; do
 done
 
 # Enable UFW
-ufw enable
+ufw enable -y
 echo "UFW has been enabled."
 
 # Display UFW status
