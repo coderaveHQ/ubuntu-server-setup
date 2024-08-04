@@ -3,10 +3,18 @@
 # Copy this file to config.sh and edit the values to match your configuration
 # `cp config.sh.example config.sh`
 
-# Define the users in the format "username:password:Real Name"
+# Define the users in the format "username:password:ssh_public_key"
 declare -A USERS
-USERS[0]="username1:password1:Real Name 1"
-USERS[1]="username2:password2:Real Name 2"
+USERS[0]="username1:password1:ssh-rsa AAA... user1@example.com"
+USERS[1]="username2:password2:ssh-rsa AAA... user2@example.com"
 
 # Define a groupname for the users
 GROUPNAME="mygroup"
+
+# Define allowed ports for UFW
+UFW_PORTS=(
+    "22/tcp"       # SSH
+    "80/tcp"       # HTTP
+    "443/tcp"      # HTTPS
+    # Add other ports as needed
+)
