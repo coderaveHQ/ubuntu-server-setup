@@ -6,8 +6,8 @@ source "$(dirname "$0")/common/check_root.sh"
 # Ensure SSH configuration file exists
 SSH_CONFIG_FILE="/etc/ssh/sshd_config"
 if [ ! -f "$SSH_CONFIG_FILE" ]; then
-    echo "SSH configuration file $SSH_CONFIG_FILE not found!"
-    exit 1
+  echo "SSH configuration file $SSH_CONFIG_FILE not found!"
+  exit 1
 fi
 
 # Disable root login and password authentication

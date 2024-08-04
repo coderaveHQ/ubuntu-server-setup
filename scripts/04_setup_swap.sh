@@ -5,19 +5,19 @@ source "$(dirname "$0")/common/check_root.sh"
 
 # Function to calculate swap size based on RAM
 calculate_swap_size() {
-    local ram_size_gb=$1
-    local swap_size_gb
+  local ram_size_gb=$1
+  local swap_size_gb
 
-    # Define swap size as 1.5 times RAM size
-    local swap_multiplier=1.5
-    swap_size_gb=$(echo "scale=0; $ram_size_gb * $swap_multiplier" | bc)
+  # Define swap size as 1.5 times RAM size
+  local swap_multiplier=1.5
+  swap_size_gb=$(echo "scale=0; $ram_size_gb * $swap_multiplier" | bc)
 
-    # Ensure the swap size is at least 1GB
-    if [ "$swap_size_gb" -lt 1 ]; then
-        swap_size_gb=1
-    fi
+  # Ensure the swap size is at least 1GB
+  if [ "$swap_size_gb" -lt 1 ]; then
+    swap_size_gb=1
+  fi
 
-    echo "${swap_size_gb}G"
+  echo "${swap_size_gb}G"
 }
 
 # Get total RAM in GB
@@ -31,17 +31,17 @@ SWAP_FILE="/swapfile"
 
 # Create the swap file if it doesn't exist
 if [ ! -f "$SWAP_FILE" ]; then
-    echo "Creating swap file of size $swap_size..."
-    fallocate -l "$swap_size" "$SWAP_FILE" || {
-        echo "fallocate command failed, trying dd..."
-        dd if=/dev/zero of="$SWAP_FILE" bs=1M count=$((swap_size * 1024)) || {
-            echo "Failed to create swap file."
-            exit 1
-        }
+  echo "Creating swap file of size $swap_size..."
+  fallocate -l "$swap_size" "$SWAP_FILE" || {
+    echo "fallocate command failed, trying dd..."
+    dd if=/dev/zero of="$SWAP_FILE" bs=1M count=$((swap_size * 1024)) || {
+      echo "Failed to create swap file."
+      exit 1
     }
-    chmod 600 "$SWAP_FILE"
-    mkswap "$SWAP_FILE"
-    echo "Swap file created and formatted."
+  }
+  chmod 600 "$SWAP_FILE"
+  mkswap "$SWAP_FILE"
+  echo "Swap file created and formatted."
 fi
 
 # Enable the swap file
