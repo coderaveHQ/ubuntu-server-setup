@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Load common functions
-source ./scripts/common/check_root.sh
+# Load common function
+source "$(dirname "$0")/common/check_root.sh"
 
 # Function to calculate swap size based on RAM
 calculate_swap_size() {

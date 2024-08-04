@@ -14,7 +14,7 @@ GROUPNAME="mygroup"
 # Define allowed ports for UFW
 UFW_PORTS=(
     "22/tcp"       # SSH
-    "80/tcp"       # HTTP
-    "443/tcp"      # HTTPS
+    # "80/tcp"       # HTTP
+    # "443/tcp"      # HTTPS
     # Add other ports as needed
 )

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if the script is run with root permissions
-source ./scripts/common/check_root.sh
+source "$(dirname "$0")/scripts/common/check_root.sh"
 
 # Execute all scripts in the scripts directory
 for script in ./scripts/*.sh; do

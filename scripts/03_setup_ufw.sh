@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Load common functions
-source ./scripts/common/check_root.sh
-source ./scripts/common/load_config.sh
+source "$(dirname "$0")/common/check_root.sh"
+source "$(dirname "$0")/common/load_config.sh"
 
 # Ensure UFW is installed
 if ! command -v ufw >/dev/null 2>&1; then

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load common functions
-source ./scripts/common/check_root.sh
+source "$(dirname "$0")/common/check_root.sh"
 
 # Ensure SSH configuration file exists
 SSH_CONFIG_FILE="/etc/ssh/sshd_config"

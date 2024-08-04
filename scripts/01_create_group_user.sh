@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Load common functions
-source ./scripts/common/check_root.sh
-source ./scripts/common/load_config.sh
+source "$(dirname "$0")/common/check_root.sh"
+source "$(dirname "$0")/common/load_config.sh"
 
 # Create the group if it doesn't exist
 if ! getent group "$GROUPNAME" >/dev/null; then
@@ -13,7 +13,7 @@ fi
 # Create users and add them to the group
 for user_info in "${USERS[@]}"; do
   IFS=':' read -r username password ssh_key <<< "$user_info"
-  
+
   # Create user if it doesn't exist
   if ! id -u "$username" >/dev/null 2>&1; then
     useradd -m -s /bin/bash "$username"

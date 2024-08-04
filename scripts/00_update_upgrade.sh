@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if script is run with root permissions
-source ./scripts/common/check_root.sh
+source "$(dirname "$0")/common/check_root.sh"
 
 # Update and Upgrade the system
 echo "Updating and Upgrading the system..."
