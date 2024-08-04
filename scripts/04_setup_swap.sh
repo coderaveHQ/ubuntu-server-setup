@@ -49,16 +49,11 @@ swapon "$SWAP_FILE"
 echo "$SWAP_FILE none swap sw 0 0" >> /etc/fstab
 echo "Swap file enabled and added to /etc/fstab."
 
-# Configure swappiness and vfs_cache_pressure
+# Configure persistent swappiness and vfs_cache_pressure
 echo "Setting swappiness to 10 and vfs_cache_pressure to 50..."
-sysctl vm.swappiness=10
-sysctl vm.vfs_cache_pressure=50
-
-# Make the settings persistent
-echo "vm.swappiness=10" >> /etc/sysctl.conf
-echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
-
-# Apply sysctl settings
-sysctl -p
+cat <<EOF > /etc/sysctl.d/99-sysctl.conf
+vm.swappiness=10
+vm.vfs_cache_pressure=50
+EOF
 
 echo "Swap file setup and system parameters updated."
