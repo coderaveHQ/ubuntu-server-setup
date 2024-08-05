@@ -1,6 +1,16 @@
-# Ubuntu Server Setup
+<div align="center">
+<img src="https://raw.githubusercontent.com/coderaveHQ/coderave-brand-kit/main/banner/coderave-banner-dot-pattern.png" alt="coderave-banner" />
+
+<h1>Ubuntu Server Setup</h1>
+
+[![ubuntu](https://img.shields.io/badge/20.04LTS-FF6209?style=for-the-badge&logo=ubuntu&label=ubuntu&labelColor=000000)](https://releases.ubuntu.com/20.04/)
+[![ubuntu](https://img.shields.io/badge/22.04LTS-FF6209?style=for-the-badge&logo=ubuntu&label=ubuntu&labelColor=000000)](https://releases.ubuntu.com/22.04/)
+[![ubuntu](https://img.shields.io/badge/24.04LTS-FF6209?style=for-the-badge&logo=ubuntu&label=ubuntu&labelColor=000000)](https://releases.ubuntu.com/24.04/)
+</div>
 
 This repository contains scripts to automate the initial setup of an Ubuntu server.
+
+The scripts are tested on `20.04LTS` `22.04LTS` `24.04LTS`
 
 ## Usage
 
