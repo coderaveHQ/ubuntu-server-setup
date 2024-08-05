@@ -5,14 +5,14 @@ source "$(dirname "$0")/common/check_root.sh"
 source "$(dirname "$0")/common/load_config.sh"
 
 # Ensure UFW is installed
-if ! command -v ufw >/dev/null 2>&1; then
+if ! command -v ufw &> /dev/null; then
   echo "UFW is not installed. Installing..."
-  apt-get update -y
-  apt-get install -y ufw
+  apt update -y
+  apt install ufw -y
 fi
 
 # Reset UFW to default settings
-ufw reset -y
+yes | ufw reset
 
 # Set default policies
 ufw default deny incoming
@@ -25,7 +25,7 @@ for port in "${UFW_PORTS[@]}"; do
 done
 
 # Enable UFW
-ufw enable -y
+yes | ufw enable
 echo "UFW has been enabled."
 
 # Display UFW status
