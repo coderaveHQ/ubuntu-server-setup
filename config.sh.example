@@ -18,3 +18,18 @@ UFW_PORTS=(
     # "443/tcp"      # HTTPS
     # Add other ports as needed
 )
+
+# Define rclone webdav
+WEBDAV_REMOTE="webdav"
+WEBDAV_URL="https://webdav.example.com"
+WEBDAV_VENDOR="other"
+WEBDAV_USER="username"
+WEBDAV_PASS="password"
+
+# Define borg backup
+BORG_REPO="/path/to/repo"
+BACKUP_SOURCE="/path/to/source"
+BORG_PASSPHRASE="abc123"
+
+# Define cron schedule
+CRON_SCHEDULE="0 2 * * *" # Every day at 2am
