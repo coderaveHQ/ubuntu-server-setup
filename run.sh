@@ -25,13 +25,17 @@ read -r response
 if [[ "$response" == "y" || "$response" == "Y" ]]; then
   echo "Select optional scripts to run:"
   echo "1) Install Docker"
+  echo "2) Setup Backup (rclone and borgbackup)"
   echo "Enter the numbers of the scripts you want to run, separated by spaces (e.g., '1 n'):"
   read -r scripts_to_run
 
   for script in $scripts_to_run; do
     case $script in
       1)
-        "$SCRIPT_DIR/optional-scripts/install_docker.sh"
+        "$SCRIPT_DIR/optional/setup_docker.sh"
+        ;;
+      2)
+        "$SCRIPT_DIR/optional/setup_backup.sh"
         ;;
       *)
         echo "Invalid option: $script"
