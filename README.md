@@ -39,3 +39,13 @@ The scripts are tested on `20.04LTS` `22.04LTS` `24.04LTS`
 - `03_setup_ufw.sh`: Configures UFW firewall with the ports specified in `config.cfg`.
 - `04_setup_swap.sh`: Sets up a swap file based on the installed RAM, and configures swappiness and vfs_cache_pressure.
 - Common scripts are stored in the `scripts/common/` folder.
+
+## Post Installation
+
+- After running the scripts, you can log in to the server using the newly created users and their SSH keys.
+- You can also set up additional services like [Wireguard](https://github.com/WireGuard/wireguard-linux), [Borg](https://github.com/borgbackup/borg), or security tools like [CrowdSec](https://github.com/crowdsecurity/crowdsec).
+- Refer to the official Ubuntu documentation for more information on server setup and configuration.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
