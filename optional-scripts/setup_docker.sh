@@ -41,7 +41,7 @@ systemctl enable containerd.service
 
 # Prepare /srv/docker directory and give permissions to usergroup
 mkdir -p /srv/docker
-chown -R $GROUPNAME:$GROUPNAME /srv/docker
-chmod 775 /srv/docker
+chown root:$GROUPNAME /srv/docker/
+chmod 2775 /srv/docker/
 
 echo "Docker setup complete."
