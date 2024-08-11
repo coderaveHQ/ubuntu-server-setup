@@ -31,7 +31,7 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
   for script in $scripts_to_run; do
     case $script in
       1)
-        "$SCRIPT_DIR/optional-scripts/install_docker.sh"
+        "$SCRIPT_DIR/optional-scripts/setup_docker.sh"
         ;;
       *)
         echo "Invalid option: $script"
