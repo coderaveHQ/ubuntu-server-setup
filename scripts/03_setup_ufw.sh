@@ -21,6 +21,7 @@ ufw default allow outgoing
 # Allow SSH and other ports defined in the config file
 for port in "${UFW_PORTS[@]}"; do
   ufw allow "$port"
+  ufw limit "$port"
   echo "Allowed $port through UFW."
 done
 
